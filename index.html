@@ -3,8 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MoodSky - 记录心情，本地存储，iCloud 同步，不收集任何用户信息。">
-  <title>MoodSky - 隐私政策与简介</title>
+  <title>MoodSky - 情绪记录 App | 隐私政策与简介</title>
+  <meta name="description" content="MoodSky 专注个人情绪记录与回顾，数据仅本地存储与 iCloud 同步，不收集任何用户信息。Privacy-first mood journal for iOS.">
+  <meta name="keywords" content="MoodSky, 情绪记录, 心情日记, mood journal, 隐私, 本地存储, iCloud, iOS app, Beenocchio">
+  <meta name="author" content="Beenocchio">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0c0c0e">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MoodSky - 情绪记录 App | 隐私政策与简介">
+  <meta property="og:description" content="MoodSky 专注个人情绪记录与回顾，数据仅本地存储与 iCloud 同步，不收集任何用户信息。">
+  <meta property="og:url" content="https://moodsky.beenocchio.com/">
+  <meta property="og:image" content="https://moodsky.beenocchio.com/favicon.png">
+  <meta property="og:locale" content="zh_Hans">
+  <meta property="og:locale:alternate" content="en">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MoodSky - 情绪记录 App">
+  <meta name="twitter:description" content="数据仅本地存储 · iCloud 同步 · 零用户信息收集。Privacy-first mood journal for iOS.">
+  <meta name="twitter:image" content="https://moodsky.beenocchio.com/favicon.png">
+  <link rel="canonical" href="https://moodsky.beenocchio.com/">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,13 +63,36 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                  radial-gradient(ellipse 50% 40% at 100% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 55%),
+                  radial-gradient(ellipse 60% 50% at 100% 70%, rgba(34, 197, 94, 0.12) 0%, transparent 50%),
+                  radial-gradient(ellipse 50% 50% at 10% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
       pointer-events: none;
+      animation: fluidGlow 15s ease-in-out infinite;
+    }
+    .bg-fluid::after {
+      content: '';
+      position: absolute;
+      width: 140%;
+      height: 140%;
+      top: -20%;
+      left: -20%;
+      background: radial-gradient(ellipse 40% 40% at 30% 30%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
+                  radial-gradient(ellipse 35% 35% at 70% 70%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      animation: fluidDrift 25s ease-in-out infinite;
     }
     @keyframes fluid {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
+    }
+    @keyframes fluidGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.05); }
+    }
+    @keyframes fluidDrift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(3%, -2%) scale(1.03); }
+      66% { transform: translate(-2%, 3%) scale(0.98); }
     }
 
     /* 顶栏 - 参考 moimoi */
@@ -338,15 +379,37 @@
       .header-right { gap: 0.5rem; }
       .btn-download { padding: 0.45rem 0.85rem; font-size: 0.85rem; }
     }
-  </style>
+    </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "MoodSky - 情绪记录 App | 隐私政策与简介",
+        "description": "MoodSky 专注个人情绪记录与回顾，数据仅本地存储与 iCloud 同步，不收集任何用户信息。",
+        "inLanguage": ["zh-Hans", "en"],
+        "publisher": { "@type": "Organization", "name": "Beenocchio", "url": "https://www.beenocchio.com/" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "MoodSky",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "iOS",
+        "description": "个人情绪记录与回顾 App，数据本地存储，支持 iCloud 同步，不收集用户信息。",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="bg-fluid" aria-hidden="true"></div>
 
   <header class="header">
     <div class="header-inner">
-      <a href="#" class="logo-wrap" aria-label="MoodSky">
-        <img src="favicon.png" alt="">
+      <a href="#" class="logo-wrap" aria-label="MoodSky 首页">
+        <img src="favicon.png" alt="MoodSky" width="28" height="28">
         <span>MoodSky</span>
       </a>
       <nav class="nav-links" aria-label="主导航">
@@ -357,8 +420,8 @@
       </nav>
       <div class="header-right">
         <div class="lang-switcher" aria-label="选择语言">
-          <button type="button" id="lang-zh" class="active" aria-pressed="true">中文</button>
           <button type="button" id="lang-en" aria-pressed="false">English</button>
+          <button type="button" id="lang-zh" class="active" aria-pressed="true">中文</button>
         </div>
         <a href="#" class="btn-download" target="_blank" rel="noopener" id="btn-download-nav"><!-- 上架后替换为 App Store 链接 -->
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -370,7 +433,7 @@
 
   <main class="main">
     <section class="hero">
-      <img src="favicon.png" alt="" class="hero-icon">
+      <img src="favicon.png" alt="MoodSky App" class="hero-icon" width="80" height="80">
       <h1 class="lang-zh">记录心情，仅属于你</h1>
       <h1 class="lang-en">Your mood, your sky</h1>
       <p class="hero-sub lang-zh">本地存储 · iCloud 同步 · 零数据收集</p>
@@ -459,7 +522,7 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">
-          <img src="favicon.png" alt="">
+          <img src="favicon.png" alt="MoodSky" width="24" height="24">
           MoodSky
         </div>
         <p class="footer-slogan lang-zh">记录心情，仅属于你</p>
