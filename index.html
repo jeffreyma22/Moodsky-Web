@@ -5,51 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="MoodSky - 记录心情，本地存储，iCloud 同步，不收集任何用户信息。">
   <title>MoodSky - 隐私政策与简介</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --glass-bg: rgba(255, 255, 255, 0.12);
-      --glass-border: rgba(255, 255, 255, 0.2);
-      --text-primary: #1a1a2e;
-      --text-secondary: #4a4a6a;
-      --accent: #6366f1;
-      --accent-soft: rgba(99, 102, 241, 0.15);
+      --bg: #0c0c0e;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --accent: #22c55e;
+      --accent-hover: #16a34a;
+      --accent-soft: rgba(34, 197, 94, 0.15);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
+      background: var(--bg);
       color: var(--text-primary);
       overflow-x: hidden;
     }
 
-    /* 流体渐变背景 */
+    /* 深色流体渐变背景 */
     .bg-fluid {
       position: fixed;
       inset: 0;
       z-index: -1;
-      background: linear-gradient(135deg, #e8eaf6 0%, #fce4ec 30%, #e3f2fd 60%, #f3e5f5 100%);
-      background-size: 400% 400%;
-      animation: fluid 18s ease-in-out infinite;
+      background: linear-gradient(160deg, #0c0c0e 0%, #111114 30%, #0f0f18 60%, #0c0c0e 100%);
+      background-size: 200% 200%;
+      animation: fluid 20s ease-in-out infinite;
     }
     .bg-fluid::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
-                  radial-gradient(ellipse 60% 40% at 80% 60%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                  radial-gradient(ellipse 50% 40% at 100% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
       pointer-events: none;
     }
     @keyframes fluid {
@@ -57,51 +54,148 @@
       50% { background-position: 100% 50%; }
     }
 
-    .container {
+    /* 顶栏 - 参考 moimoi */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem;
+      background: rgba(12, 12, 14, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    .logo-wrap img { width: 28px; height: 28px; border-radius: 6px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text-primary); }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .lang-switcher {
+      display: flex;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .lang-switcher button {
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.4rem 0.85rem;
+      border: none;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang-switcher button:hover { color: var(--text-primary); }
+    .lang-switcher button.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-primary);
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #0c0c0e;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-download:hover { background: var(--accent-hover); }
+
+    /* 主内容区 */
+    .main { padding-top: 4rem; }
+
+    /* Hero - 参考 moimoi 主视觉 */
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem 5rem;
       max-width: 720px;
       margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
     }
+    .hero-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      border-radius: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    .hero .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    .hero .btn-download { font-size: 1rem; padding: 0.65rem 1.25rem; }
 
-    /* 磨砂玻璃卡片 */
+    /* 磨砂玻璃卡片 - 深色版 */
     .glass {
-      background: var(--glass-bg);
+      background: var(--bg-card);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--glass-border);
-      border-radius: 24px;
+      border-radius: 20px;
       padding: 2rem 2.5rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    /* Logo 区域 */
-    .logo-section {
-      text-align: center;
-      padding: 3rem 0 2rem;
+    .section {
+      padding: 0 1.5rem 3rem;
     }
-    .logo {
-      font-size: 2.5rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .logo-sub {
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-      font-weight: 400;
-      color: var(--text-secondary);
-    }
-
-    /* App 简介 */
-    .intro-section .glass {
-      padding: 2.5rem;
-    }
-    .intro-section h2 {
-      font-size: 1.35rem;
+    .section-title {
+      font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
       color: var(--text-primary);
@@ -111,16 +205,16 @@
       color: var(--text-secondary);
       font-size: 1rem;
     }
-    .intro-section p + p {
-      margin-top: 0.75rem;
-    }
+    .intro-section p + p { margin-top: 0.75rem; }
     .intro-highlight {
       display: inline-flex;
       align-items: center;
+      flex-wrap: wrap;
       gap: 0.5rem;
       margin-top: 1.25rem;
       padding: 0.75rem 1rem;
       background: var(--accent-soft);
+      border: 1px solid rgba(34, 197, 94, 0.25);
       border-radius: 12px;
       font-size: 0.9rem;
       color: var(--accent);
@@ -128,15 +222,17 @@
     }
 
     /* 隐私政策 */
+    .privacy-section { padding-bottom: 4rem; }
+    .privacy-section .glass { padding: 2.5rem; }
     .privacy-section h2 {
       font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.5rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--glass-border);
     }
     .privacy-section h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
       margin: 1.5rem 0 0.5rem;
       color: var(--text-primary);
@@ -146,104 +242,148 @@
       color: var(--text-secondary);
       font-size: 0.95rem;
     }
-    .privacy-section ul {
-      margin: 0.5rem 0 0 1.25rem;
-    }
-    .privacy-section li + li {
-      margin-top: 0.35rem;
-    }
+    .privacy-section ul { margin: 0.5rem 0 0 1.25rem; }
+    .privacy-section li + li { margin-top: 0.35rem; }
     .privacy-section .contact-box {
       margin-top: 1.5rem;
       padding: 1rem 1.25rem;
       background: var(--accent-soft);
+      border: 1px solid rgba(34, 197, 94, 0.2);
       border-radius: 12px;
       font-size: 0.95rem;
     }
-    .privacy-section .contact-box strong {
-      color: var(--text-primary);
-    }
+    .privacy-section .contact-box strong { color: var(--text-primary); }
     .privacy-section a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }
-    .privacy-section a:hover {
-      text-decoration: underline;
-    }
+    .privacy-section a:hover { text-decoration: underline; }
     .last-updated {
       font-size: 0.85rem;
       color: var(--text-secondary);
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       opacity: 0.9;
     }
 
-    /* 语言切换 */
-    .lang-switcher {
-      position: fixed;
-      top: 1.25rem;
-      right: 1.5rem;
-      z-index: 10;
+    /* 页脚 - 参考 moimoi */
+    .footer {
+      border-top: 1px solid var(--glass-border);
+      padding: 3rem 1.5rem 2rem;
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 999px;
-      padding: 4px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
     }
-    .lang-switcher button {
-      font-family: inherit;
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 999px;
-      background: transparent;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: color 0.2s, background 0.2s;
-    }
-    .lang-switcher button:hover {
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 1.1rem;
       color: var(--text-primary);
     }
-    .lang-switcher button.active {
-      background: rgba(255, 255, 255, 0.7);
-      color: var(--accent);
+    .footer-brand img { width: 24px; height: 24px; border-radius: 6px; }
+    .footer-slogan {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 400;
     }
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+    }
+    .footer-col h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-email {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .footer-email a { color: var(--accent); }
+
     body.lang-en .lang-zh { display: none !important; }
     body:not(.lang-en) .lang-en { display: none !important; }
 
-    @media (max-width: 600px) {
-      .container { padding: 1.25rem 1rem 3rem; }
-      .glass { padding: 1.5rem 1.25rem; }
-      .logo { font-size: 2rem; }
-      .lang-switcher { top: 0.75rem; right: 0.75rem; }
-      .logo-section { padding-top: 3.5rem; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1rem 4rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-links { gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .header { padding: 0.6rem 1rem; }
+      .header-right { gap: 0.5rem; }
+      .btn-download { padding: 0.45rem 0.85rem; font-size: 0.85rem; }
     }
   </style>
 </head>
 <body>
   <div class="bg-fluid" aria-hidden="true"></div>
 
-  <nav class="lang-switcher" aria-label="选择语言 / Choose language">
-    <button type="button" id="lang-zh" class="active" aria-pressed="true">中文</button>
-    <button type="button" id="lang-en" aria-pressed="false">English</button>
-  </nav>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo-wrap" aria-label="MoodSky">
+        <img src="favicon.png" alt="">
+        <span>MoodSky</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#about"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
+        <a href="#privacy"><span class="lang-zh">隐私政策</span><span class="lang-en">Privacy</span></a>
+        <a href="#contact"><span class="lang-zh">联系</span><span class="lang-en">Contact</span></a>
+        <a href="https://www.beenocchio.com/" target="_blank" rel="noopener"><span class="lang-zh">官网</span><span class="lang-en">Official Site</span></a>
+      </nav>
+      <div class="header-right">
+        <div class="lang-switcher" aria-label="选择语言">
+          <button type="button" id="lang-zh" class="active" aria-pressed="true">中文</button>
+          <button type="button" id="lang-en" aria-pressed="false">English</button>
+        </div>
+        <a href="#" class="btn-download" target="_blank" rel="noopener" id="btn-download-nav"><!-- 上架后替换为 App Store 链接 -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span class="lang-zh">下载</span><span class="lang-en">Download</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-  <div class="container">
-    <!-- Logo -->
-    <header class="logo-section">
-      <h1 class="logo">MoodSky</h1>
-      <p class="logo-sub lang-zh">记录心情，仅属于你</p>
-      <p class="logo-sub lang-en">Your mood, your sky</p>
-    </header>
+  <main class="main">
+    <section class="hero">
+      <img src="favicon.png" alt="" class="hero-icon">
+      <h1 class="lang-zh">记录心情，仅属于你</h1>
+      <h1 class="lang-en">Your mood, your sky</h1>
+      <p class="hero-sub lang-zh">本地存储 · iCloud 同步 · 零数据收集</p>
+      <p class="hero-sub lang-en">Local storage · iCloud sync · No data collection</p>
+      <a href="#" class="btn-download" target="_blank" rel="noopener" id="btn-download-hero"><!-- 上架后替换为 App Store 链接 -->
+        <span class="lang-zh">下载 App</span><span class="lang-en">Download</span>
+      </a>
+    </section>
 
-    <!-- App 简介 -->
-    <section class="intro-section" aria-labelledby="intro-title">
+    <section id="about" class="section intro-section" aria-labelledby="intro-title">
       <div class="glass">
-        <h2 id="intro-title" class="lang-zh">关于 MoodSky</h2>
-        <h2 id="intro-title-en" class="lang-en">About MoodSky</h2>
+        <h2 id="intro-title" class="section-title lang-zh">关于 MoodSky</h2>
+        <h2 id="intro-title-en" class="section-title lang-en">About MoodSky</h2>
         <div class="lang-zh">
           <p>MoodSky 是一款专注于个人情绪记录与回顾的 App。你可以用简单的方式记录每日心情，在日历与时间线中回顾自己的情绪变化，所有内容都只保存在你的设备与你的 iCloud 账户中。</p>
           <p>我们相信隐私是基本权利。MoodSky 不收集、不上传、不分析任何可识别你身份的数据，也不包含第三方分析或广告 SDK。</p>
@@ -257,62 +397,95 @@
       </div>
     </section>
 
-    <!-- 隐私政策 -->
-    <section class="privacy-section glass" aria-labelledby="privacy-title">
-      <h2 id="privacy-title" class="lang-zh">隐私政策 (Privacy Policy)</h2>
-      <h2 id="privacy-title-en" class="lang-en">Privacy Policy</h2>
-      <p class="last-updated lang-zh">最后更新：2025年2月</p>
-      <p class="last-updated lang-en">Last updated: February 2025</p>
+    <section id="privacy" class="section privacy-section" aria-labelledby="privacy-title">
+      <div class="glass">
+        <h2 id="privacy-title" class="lang-zh">隐私政策 (Privacy Policy)</h2>
+        <h2 id="privacy-title-en" class="lang-en">Privacy Policy</h2>
+        <p class="last-updated lang-zh">最后更新：2026年2月</p>
+        <p class="last-updated lang-en">Last updated: February 2026</p>
 
-      <div class="lang-zh">
-        <h3>1. 概述 (Overview)</h3>
-        <p>MoodSky（「本应用」）尊重您的隐私。本隐私政策说明我们如何对待您的数据。核心原则：<strong>您的数据存储在您的设备上，我们不会收集任何可识别您身份的信息。</strong></p>
-        <h3>2. 数据存储 (Data Storage)</h3>
-        <ul>
-          <li><strong>本地存储：</strong>您创建的心情记录、标签、设置等数据均保存在您使用的那台设备本地。我们不会将这些数据发送到自己的服务器。</li>
-          <li><strong>iCloud 同步：</strong>若您选择开启 iCloud 同步，数据会通过 Apple 的 iCloud 服务在您自己的设备之间同步。该过程由 Apple 处理，我们无法访问您 iCloud 账户中的内容。</li>
-        </ul>
-        <h3>3. 我们不收集的信息 (What We Do Not Collect)</h3>
-        <p>我们<strong>不收集</strong>您的姓名、邮箱、电话号码、设备标识符、位置信息或任何其他可用于识别您身份的数据。我们不在应用内嵌入第三方分析、广告或追踪 SDK。</p>
-        <h3>4. 数据安全 (Data Security)</h3>
-        <p>因为数据主要存储在您的设备上，设备本身的安全（如锁屏密码、生物识别）即构成数据安全的重要部分。若您使用 iCloud 同步，数据会受 Apple iCloud 安全策略与您 Apple ID 安全设置的保护。</p>
-        <h3>5. 儿童隐私 (Children’s Privacy)</h3>
-        <p>本应用不针对 13 岁以下儿童主动收集个人信息。若您为家长或监护人并对儿童使用本应用有疑问，欢迎通过下方联系方式与我们联系。</p>
-        <h3>6. 政策变更 (Changes to This Policy)</h3>
-        <p>我们可能会偶尔更新本隐私政策。更新后的版本会发布在本页面，并注明「最后更新」日期。继续使用本应用即表示您接受更新后的政策。</p>
-        <h3>7. 联系我们 (Contact Us)</h3>
-        <p>如有任何与隐私或本政策相关的问题，请通过以下方式联系我们：</p>
-        <div class="contact-box">
-          <strong>MoodSky</strong><br>
-          邮箱：<a href="mailto:MoodSky@beenocchio.com">MoodSky@beenocchio.com</a>
+        <div class="lang-zh">
+          <h3>1. 概述 (Overview)</h3>
+          <p>MoodSky（「本应用」）尊重您的隐私。本隐私政策说明我们如何对待您的数据。核心原则：<strong>您的数据存储在您的设备上，我们不会收集任何可识别您身份的信息。</strong></p>
+          <h3>2. 数据存储 (Data Storage)</h3>
+          <ul>
+            <li><strong>本地存储：</strong>您创建的心情记录、标签、设置等数据均保存在您使用的那台设备本地。我们不会将这些数据发送到自己的服务器。</li>
+            <li><strong>iCloud 同步：</strong>若您选择开启 iCloud 同步，数据会通过 Apple 的 iCloud 服务在您自己的设备之间同步。该过程由 Apple 处理，我们无法访问您 iCloud 账户中的内容。</li>
+          </ul>
+          <h3>3. 我们不收集的信息 (What We Do Not Collect)</h3>
+          <p>我们<strong>不收集</strong>您的姓名、邮箱、电话号码、设备标识符、位置信息或任何其他可用于识别您身份的数据。我们不在应用内嵌入第三方分析、广告或追踪 SDK。</p>
+          <h3>4. 数据安全 (Data Security)</h3>
+          <p>因为数据主要存储在您的设备上，设备本身的安全（如锁屏密码、生物识别）即构成数据安全的重要部分。若您使用 iCloud 同步，数据会受 Apple iCloud 安全策略与您 Apple ID 安全设置的保护。</p>
+          <h3>5. 儿童隐私 (Children’s Privacy)</h3>
+          <p>本应用不针对 13 岁以下儿童主动收集个人信息。若您为家长或监护人并对儿童使用本应用有疑问，欢迎通过下方联系方式与我们联系。</p>
+          <h3>6. 政策变更 (Changes to This Policy)</h3>
+          <p>我们可能会偶尔更新本隐私政策。更新后的版本会发布在本页面，并注明「最后更新」日期。继续使用本应用即表示您接受更新后的政策。</p>
+          <h3>7. 联系我们 (Contact Us)</h3>
+          <p>如有任何与隐私或本政策相关的问题，请通过以下方式联系我们：</p>
+          <div class="contact-box">
+            <strong>MoodSky</strong><br>
+            邮箱：<a href="mailto:MoodSky@beenocchio.com">MoodSky@beenocchio.com</a>
+          </div>
         </div>
-      </div>
 
-      <div class="lang-en">
-        <h3>1. Overview</h3>
-        <p>MoodSky (“the app”) respects your privacy. This Privacy Policy explains how we treat your data. Our core principle: <strong>Your data stays on your device, and we do not collect any information that identifies you.</strong></p>
-        <h3>2. Data Storage</h3>
-        <ul>
-          <li><strong>Local storage:</strong> Mood entries, tags, and settings you create are stored locally on the device you use. We do not send this data to our own servers.</li>
-          <li><strong>iCloud sync:</strong> If you enable iCloud sync, data is synced between your own devices via Apple’s iCloud. This is handled by Apple; we do not have access to the contents of your iCloud account.</li>
-        </ul>
-        <h3>3. What We Do Not Collect</h3>
-        <p>We do <strong>not</strong> collect your name, email, phone number, device identifiers, location, or any other data that can identify you. We do not embed third‑party analytics, advertising, or tracking SDKs in the app.</p>
-        <h3>4. Data Security</h3>
-        <p>Because your data is stored primarily on your device, your device’s own security (e.g. passcode, biometrics) is a key part of keeping it safe. If you use iCloud sync, your data is also protected by Apple’s iCloud security and your Apple ID settings.</p>
-        <h3>5. Children’s Privacy</h3>
-        <p>We do not knowingly collect personal information from children under 13. If you are a parent or guardian and have questions about your child’s use of the app, please contact us using the details below.</p>
-        <h3>6. Changes to This Policy</h3>
-        <p>We may update this Privacy Policy from time to time. The updated version will be posted on this page with a new “Last updated” date. Continued use of the app means you accept the updated policy.</p>
-        <h3>7. Contact Us</h3>
-        <p>If you have any questions about privacy or this policy, please contact us at:</p>
-        <div class="contact-box">
-          <strong>MoodSky</strong><br>
-          Email: <a href="mailto:MoodSky@beenocchio.com">MoodSky@beenocchio.com</a>
+        <div class="lang-en">
+          <h3>1. Overview</h3>
+          <p>MoodSky (“the app”) respects your privacy. This Privacy Policy explains how we treat your data. Our core principle: <strong>Your data stays on your device, and we do not collect any information that identifies you.</strong></p>
+          <h3>2. Data Storage</h3>
+          <ul>
+            <li><strong>Local storage:</strong> Mood entries, tags, and settings you create are stored locally on the device you use. We do not send this data to our own servers.</li>
+            <li><strong>iCloud sync:</strong> If you enable iCloud sync, data is synced between your own devices via Apple’s iCloud. This is handled by Apple; we do not have access to the contents of your iCloud account.</li>
+          </ul>
+          <h3>3. What We Do Not Collect</h3>
+          <p>We do <strong>not</strong> collect your name, email, phone number, device identifiers, location, or any other data that can identify you. We do not embed third‑party analytics, advertising, or tracking SDKs in the app.</p>
+          <h3>4. Data Security</h3>
+          <p>Because your data is stored primarily on your device, your device’s own security (e.g. passcode, biometrics) is a key part of keeping it safe. If you use iCloud sync, your data is also protected by Apple’s iCloud security and your Apple ID settings.</p>
+          <h3>5. Children’s Privacy</h3>
+          <p>We do not knowingly collect personal information from children under 13. If you are a parent or guardian and have questions about your child’s use of the app, please contact us using the details below.</p>
+          <h3>6. Changes to This Policy</h3>
+          <p>We may update this Privacy Policy from time to time. The updated version will be posted on this page with a new “Last updated” date. Continued use of the app means you accept the updated policy.</p>
+          <h3>7. Contact Us</h3>
+          <p>If you have any questions about privacy or this policy, please contact us at:</p>
+          <div class="contact-box">
+            <strong>MoodSky</strong><br>
+            Email: <a href="mailto:MoodSky@beenocchio.com">MoodSky@beenocchio.com</a>
+          </div>
         </div>
       </div>
     </section>
-  </div>
+  </main>
+
+  <footer id="contact" class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <img src="favicon.png" alt="">
+          MoodSky
+        </div>
+        <p class="footer-slogan lang-zh">记录心情，仅属于你</p>
+        <p class="footer-slogan lang-en">Your mood, your sky</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="lang-zh">导航</h4>
+          <h4 class="lang-en">Nav</h4>
+          <a href="#about"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
+          <a href="#privacy"><span class="lang-zh">隐私政策</span><span class="lang-en">Privacy</span></a>
+          <a href="#contact"><span class="lang-zh">联系</span><span class="lang-en">Contact</span></a>
+        </div>
+        <div class="footer-col">
+          <h4 class="lang-zh">资源</h4>
+          <h4 class="lang-en">Resources</h4>
+          <a href="https://www.beenocchio.com/" target="_blank" rel="noopener"><span class="lang-zh">官网</span><span class="lang-en">Official Site</span></a>
+          <a href="#privacy"><span class="lang-zh">隐私政策</span><span class="lang-en">Privacy Policy</span></a>
+          <p class="footer-email">
+            <span class="lang-zh">邮箱：</span><span class="lang-en">Email: </span>
+            <a href="mailto:MoodSky@beenocchio.com">MoodSky@beenocchio.com</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script>
     (function() {
@@ -324,24 +497,20 @@
       function setLang(en) {
         if (en) {
           body.classList.add('lang-en');
-          btnEn.classList.add('active');
-          btnZh.classList.remove('active');
-          btnEn.setAttribute('aria-pressed', 'true');
-          btnZh.setAttribute('aria-pressed', 'false');
+          if (btnEn) { btnEn.classList.add('active'); btnEn.setAttribute('aria-pressed', 'true'); }
+          if (btnZh) { btnZh.classList.remove('active'); btnZh.setAttribute('aria-pressed', 'false'); }
           document.documentElement.lang = 'en';
         } else {
           body.classList.remove('lang-en');
-          btnZh.classList.add('active');
-          btnEn.classList.remove('active');
-          btnZh.setAttribute('aria-pressed', 'true');
-          btnEn.setAttribute('aria-pressed', 'false');
+          if (btnZh) { btnZh.classList.add('active'); btnZh.setAttribute('aria-pressed', 'true'); }
+          if (btnEn) { btnEn.classList.remove('active'); btnEn.setAttribute('aria-pressed', 'false'); }
           document.documentElement.lang = 'zh-Hans';
         }
         try { localStorage.setItem(STORAGE_KEY, en ? 'en' : 'zh'); } catch (e) {}
       }
 
-      btnZh.addEventListener('click', function() { setLang(false); });
-      btnEn.addEventListener('click', function() { setLang(true); });
+      if (btnZh) btnZh.addEventListener('click', function() { setLang(false); });
+      if (btnEn) btnEn.addEventListener('click', function() { setLang(true); });
 
       var saved = '';
       try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
