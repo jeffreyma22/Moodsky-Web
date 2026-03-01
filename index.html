@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MoodSky - 情绪记录 App | 隐私政策与简介</title>
   <meta name="description" content="MoodSky 专注个人情绪记录与回顾，数据仅本地存储与 iCloud 同步，不收集任何用户信息。Privacy-first mood journal for iOS.">
-  <meta name="keywords" content="MoodSky, 情绪记录, 心情日记, mood journal, 隐私, 本地存储, iCloud, iOS app, Beenocchio">
+  <meta name="keywords" content="MoodSky, 情绪记录, 心情日记, mood journal, 隐私, 本地存储, iCloud, iOS app, 常见问题, FAQ, Beenocchio">
   <meta name="author" content="Beenocchio">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c0c0e">
@@ -23,6 +23,8 @@
   <meta name="twitter:description" content="数据仅本地存储 · iCloud 同步 · 零用户信息收集。Privacy-first mood journal for iOS.">
   <meta name="twitter:image" content="https://moodsky.beenocchio.com/favicon.png">
   <link rel="canonical" href="https://moodsky.beenocchio.com/">
+  <link rel="sitemap" type="application/xml" href="https://moodsky.beenocchio.com/sitemap.xml">
+  <meta name="apple-itunes-app" content="app-id=6759484179">
   <script>(function(){var o=window.location.origin,p=window.location.pathname;var c=p==="/"||!p?o+"/":o+p;var l=document.querySelector('link[rel="canonical"]');if(l)l.href=c;else{l=document.createElement("link");l.rel="canonical";l.href=c;document.head.appendChild(l);}})();</script>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -394,6 +396,28 @@
       margin-bottom: 1rem;
       color: var(--text-primary);
     }
+    .features-section {
+      padding: 0 1.5rem 2.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .features-section .section-title { margin-bottom: 1.25rem; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      list-style: none;
+    }
+    .features-grid li {
+      padding: 1rem 1.1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+    .features-grid li strong { color: var(--text-primary); font-weight: 600; }
     .intro-section p {
       line-height: 1.75;
       color: var(--text-secondary);
@@ -414,6 +438,64 @@
       color: var(--accent);
       font-weight: 500;
     }
+
+    /* 常见问题 */
+    .faq-section {
+      padding: 0 1.5rem 3rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .faq-section .section-title {
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    .faq-list { list-style: none; }
+    .faq-item {
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-right: 2px solid var(--text-secondary);
+      border-bottom: 2px solid var(--text-secondary);
+      transform: rotate(45deg);
+      margin-left: 0.5rem;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after { transform: rotate(-135deg); }
+    .faq-item .faq-answer {
+      padding: 0 0 1rem 0;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+    .faq-cta {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--accent);
+      color: #0c0c0e;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background 0.2s;
+    }
+    .faq-cta:hover { background: var(--accent-hover); }
 
     /* 隐私政策 */
     .privacy-section { padding-bottom: 4rem; }
@@ -461,6 +543,98 @@
     }
 
     /* 页脚 - 参考 moimoi */
+    /* 分享区域 */
+    .share-section {
+      padding: 2.5rem 1.5rem 3rem;
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .share-section .share-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+    .share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .share-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .share-copy:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
+    .share-copy.copied { border-color: var(--accent); color: var(--accent); }
+    .share-icons {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .share-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      overflow: hidden;
+    }
+    .share-icon svg { width: 20px; height: 20px; fill: currentColor; transition: fill 0.3s ease; }
+    .share-icon:hover#share-x {
+      background-color: #000;
+      border-color: #000;
+      color: #fff;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    }
+    .share-icon:hover#share-facebook {
+      background-color: #1877f2;
+      border-color: #1877f2;
+      color: #fff;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(24,119,242,0.35);
+    }
+    .share-icon:hover#share-instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      border-color: transparent;
+      color: #fff;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(220,39,67,0.35);
+    }
+    .share-icon:hover#share-whatsapp {
+      background-color: #25d366;
+      border-color: #25d366;
+      color: #fff;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(37,211,102,0.35);
+    }
+    .share-icon:hover#share-telegram {
+      background-color: #0088cc;
+      border-color: #0088cc;
+      color: #fff;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,136,204,0.35);
+    }
+
     .footer {
       border-top: 1px solid var(--glass-border);
       padding: 3rem 1.5rem 2rem;
@@ -541,6 +715,7 @@
         "@type": "WebPage",
         "name": "MoodSky - 情绪记录 App | 隐私政策与简介",
         "description": "MoodSky 专注个人情绪记录与回顾，数据仅本地存储与 iCloud 同步，不收集任何用户信息。",
+        "url": "https://moodsky.beenocchio.com/",
         "inLanguage": ["zh-Hans", "en"],
         "publisher": { "@type": "Organization", "name": "Beenocchio", "url": "https://beenocchio.com/" }
       },
@@ -550,7 +725,17 @@
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "iOS",
         "description": "个人情绪记录与回顾 App，数据本地存储，支持 iCloud 同步，不收集用户信息。",
+        "url": "https://apps.apple.com/app/id6759484179",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "支持哪些设备？", "acceptedAnswer": { "@type": "Answer", "text": "目前 MoodSky 仅支持 iPhone（iOS）。需要 iOS 17 或更高版本。" } },
+          { "@type": "Question", "name": "数据会上传到服务器吗？", "acceptedAnswer": { "@type": "Answer", "text": "不会。所有数据仅保存在您的设备本地。若您开启 iCloud 同步，数据会在您自己的 Apple 设备之间同步，我们无法访问。" } },
+          { "@type": "Question", "name": "MoodSky 是什么意思？", "acceptedAnswer": { "@type": "Answer", "text": "Mood（心情）+ Sky（天空），寓意「你的情绪天空」——用简单的方式记录心情，让一周的情绪一目了然。" } },
+          { "@type": "Question", "name": "支持哪些语言？", "acceptedAnswer": { "@type": "Answer", "text": "我们支持简体中文和英文，可在 App 内切换。" } }
+        ]
       }
     ]
   }
@@ -567,7 +752,9 @@
       </a>
       <nav class="nav-links" aria-label="主导航">
         <a href="#showcase-title"><span class="lang-zh">应用一览</span><span class="lang-en">Screenshots</span></a>
+        <a href="#features"><span class="lang-zh">功能特点</span><span class="lang-en">Features</span></a>
         <a href="#about"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
+        <a href="#faq"><span class="lang-zh">常见问题</span><span class="lang-en">FAQ</span></a>
         <a href="#privacy"><span class="lang-zh">隐私政策</span><span class="lang-en">Privacy</span></a>
         <a href="#contact"><span class="lang-zh">联系</span><span class="lang-en">Contact</span></a>
         <a href="https://beenocchio.com/" target="_blank" rel="noopener"><span class="lang-zh">官网</span><span class="lang-en">Official Site</span></a>
@@ -710,47 +897,131 @@
       </div>
     </section>
 
+    <section id="features" class="features-section" aria-labelledby="features-title">
+      <h2 id="features-title" class="section-title lang-zh">功能特点</h2>
+      <h2 id="features-title-en" class="section-title lang-en">Features</h2>
+      <ul class="features-grid lang-zh">
+        <li><strong>一键选心情</strong> · 选颜色、写一行，几秒完成记录</li>
+        <li><strong>本周情绪一览</strong> · 日历与时间线回顾，支持导出为图片</li>
+        <li><strong>心情画廊</strong> · 回顾过往记录与「本周情绪天气」，一目了然</li>
+        <li><strong>情绪分析</strong> · 统计、连续记录、情绪分布与深度洞察（Pro）</li>
+        <li><strong>本地与 iCloud</strong> · 数据仅存于你的设备与 iCloud，可选同步</li>
+        <li><strong>隐私优先</strong> · 不收集、不上传任何可识别身份的数据</li>
+      </ul>
+      <ul class="features-grid lang-en">
+        <li><strong>One-tap mood</strong> · Pick a color, add a line, done in seconds</li>
+        <li><strong>Week at a glance</strong> · Calendar and timeline, export as image</li>
+        <li><strong>Mood Gallery</strong> · Review past entries and "This Week's Mood Weather" at a glance</li>
+        <li><strong>Mood analysis</strong> · Totals, streaks, emotion distribution & insights (Pro)</li>
+        <li><strong>Local & iCloud</strong> · Data stays on your device and iCloud only</li>
+        <li><strong>Privacy first</strong> · No collection or upload of identifying data</li>
+      </ul>
+    </section>
+
     <section id="about" class="section intro-section" aria-labelledby="intro-title">
       <div class="glass">
         <h2 id="intro-title" class="section-title lang-zh">关于 MoodSky</h2>
         <h2 id="intro-title-en" class="section-title lang-en">About MoodSky</h2>
         <div class="lang-zh">
-          <p>MoodSky 是一款专注于个人情绪记录与回顾的 App。你可以用简单的方式记录每日心情，在日历与时间线中回顾自己的情绪变化，所有内容都只保存在你的设备与你的 iCloud 账户中。</p>
+          <p>MoodSky 是一款专注于个人情绪记录与回顾的 iOS App，适合希望轻量记录心情、重视隐私的用户。你可以用简单的方式记录每日心情，在日历与时间线中回顾自己的情绪变化，所有内容都只保存在你的设备与你的 iCloud 账户中。</p>
           <p>我们相信隐私是基本权利。MoodSky 不收集、不上传、不分析任何可识别你身份的数据，也不包含第三方分析或广告 SDK。</p>
           <div class="intro-highlight">✓ 数据仅本地存储 · ✓ iCloud 同步（可选）· ✓ 零用户信息收集</div>
         </div>
         <div class="lang-en">
-          <p>MoodSky is an app for logging and reviewing your mood. Record how you feel each day, look back on your mood over time in the calendar and timeline—all stored only on your device and in your iCloud account.</p>
+          <p>MoodSky is an iOS app for logging and reviewing your mood, built for users who want a simple, privacy-first way to track how they feel. Record each day in seconds, look back in the calendar and timeline—all stored only on your device and in your iCloud account.</p>
           <p>We believe privacy is a fundamental right. MoodSky does not collect, upload, or analyze any data that identifies you, and does not include third‑party analytics or advertising SDKs.</p>
           <div class="intro-highlight">✓ Local storage only · ✓ iCloud sync (optional) · ✓ No user data collection</div>
         </div>
       </div>
     </section>
 
+    <section id="faq" class="section faq-section" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title lang-zh">常见问题</h2>
+      <h2 id="faq-title-en" class="section-title lang-en">FAQ</h2>
+      <div class="lang-zh">
+        <ul class="faq-list">
+          <li class="faq-item">
+            <details>
+              <summary>支持哪些设备？</summary>
+              <p class="faq-answer">目前 MoodSky 仅支持 iPhone（iOS）。需要 iOS 17 或更高版本。</p>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>数据会上传到服务器吗？</summary>
+              <p class="faq-answer">不会。所有数据仅保存在您的设备本地。若您开启 iCloud 同步，数据会在您自己的 Apple 设备之间同步，我们无法访问。</p>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>MoodSky 是什么意思？</summary>
+              <p class="faq-answer">Mood（心情）+ Sky（天空），寓意「你的情绪天空」——用简单的方式记录心情，让一周的情绪一目了然。</p>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>支持哪些语言？</summary>
+              <p class="faq-answer">我们支持简体中文和英文，可在 App 内切换。</p>
+            </details>
+          </li>
+        </ul>
+        <a href="#contact" class="faq-cta">联系我们</a>
+      </div>
+      <div class="lang-en">
+        <ul class="faq-list">
+          <li class="faq-item">
+            <details>
+              <summary>What devices are supported?</summary>
+              <p class="faq-answer">MoodSky currently supports iPhone (iOS) only. iOS 17 or later is required.</p>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>Is my data uploaded to your servers?</summary>
+              <p class="faq-answer">No. All data is stored only on your device. If you enable iCloud sync, it syncs between your own Apple devices—we have no access.</p>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>What does MoodSky mean?</summary>
+              <p class="faq-answer">Mood + Sky—your emotional sky. A simple way to log how you feel and see your week at a glance.</p>
+            </details>
+          </li>
+          <li class="faq-item">
+            <details>
+              <summary>What languages are supported?</summary>
+              <p class="faq-answer">We support Simplified Chinese and English. You can switch in the app.</p>
+            </details>
+          </li>
+        </ul>
+        <a href="#contact" class="faq-cta">Contact us</a>
+      </div>
+    </section>
+
     <section id="privacy" class="section privacy-section" aria-labelledby="privacy-title">
       <div class="glass">
-        <h2 id="privacy-title" class="lang-zh">隐私政策 (Privacy Policy)</h2>
+        <h2 id="privacy-title" class="lang-zh">隐私政策</h2>
         <h2 id="privacy-title-en" class="lang-en">Privacy Policy</h2>
         <p class="last-updated lang-zh">最后更新：2026年2月</p>
         <p class="last-updated lang-en">Last updated: February 2026</p>
 
         <div class="lang-zh">
-          <h3>1. 概述 (Overview)</h3>
+          <h3>1. 概述</h3>
           <p>MoodSky（「本应用」）尊重您的隐私。本隐私政策说明我们如何对待您的数据。核心原则：<strong>您的数据存储在您的设备上，我们不会收集任何可识别您身份的信息。</strong></p>
-          <h3>2. 数据存储 (Data Storage)</h3>
+          <h3>2. 数据存储</h3>
           <ul>
             <li><strong>本地存储：</strong>您创建的心情记录、标签、设置等数据均保存在您使用的那台设备本地。我们不会将这些数据发送到自己的服务器。</li>
             <li><strong>iCloud 同步：</strong>若您选择开启 iCloud 同步，数据会通过 Apple 的 iCloud 服务在您自己的设备之间同步。该过程由 Apple 处理，我们无法访问您 iCloud 账户中的内容。</li>
           </ul>
-          <h3>3. 我们不收集的信息 (What We Do Not Collect)</h3>
+          <h3>3. 我们不收集的信息</h3>
           <p>我们<strong>不收集</strong>您的姓名、邮箱、电话号码、设备标识符、位置信息或任何其他可用于识别您身份的数据。我们不在应用内嵌入第三方分析、广告或追踪 SDK。</p>
-          <h3>4. 数据安全 (Data Security)</h3>
+          <h3>4. 数据安全</h3>
           <p>因为数据主要存储在您的设备上，设备本身的安全（如锁屏密码、生物识别）即构成数据安全的重要部分。若您使用 iCloud 同步，数据会受 Apple iCloud 安全策略与您 Apple ID 安全设置的保护。</p>
-          <h3>5. 儿童隐私 (Children’s Privacy)</h3>
+          <h3>5. 儿童隐私</h3>
           <p>本应用不针对 13 岁以下儿童主动收集个人信息。若您为家长或监护人并对儿童使用本应用有疑问，欢迎通过下方联系方式与我们联系。</p>
-          <h3>6. 政策变更 (Changes to This Policy)</h3>
+          <h3>6. 政策变更</h3>
           <p>我们可能会偶尔更新本隐私政策。更新后的版本会发布在本页面，并注明「最后更新」日期。继续使用本应用即表示您接受更新后的政策。</p>
-          <h3>7. 联系我们 (Contact Us)</h3>
+          <h3>7. 联系我们</h3>
           <p>如有任何与隐私或本政策相关的问题，请通过以下方式联系我们：</p>
           <div class="contact-box">
             <strong>MoodSky</strong><br>
@@ -783,6 +1054,24 @@
         </div>
       </div>
     </section>
+
+    <section class="share-section" aria-labelledby="share-title">
+      <h2 id="share-title" class="share-title lang-zh">分享给朋友</h2>
+      <h2 id="share-title-en" class="share-title lang-en">Share with friends</h2>
+      <div class="share-actions">
+        <button type="button" class="share-copy" id="share-copy" aria-label="复制链接">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="lang-zh">复制链接</span><span class="lang-en">Copy link</span>
+        </button>
+        <div class="share-icons">
+          <a href="#" class="share-icon" id="share-x" target="_blank" rel="noopener noreferrer" aria-label="分享到 X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="share-icon" id="share-facebook" target="_blank" rel="noopener noreferrer" aria-label="分享到 Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/" class="share-icon" id="share-instagram" target="_blank" rel="noopener noreferrer" aria-label="分享到 Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" class="share-icon" id="share-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="分享到 WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="#" class="share-icon" id="share-telegram" target="_blank" rel="noopener noreferrer" aria-label="分享到 Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer id="contact" class="footer">
@@ -800,7 +1089,9 @@
           <h4 class="lang-zh">导航</h4>
           <h4 class="lang-en">Nav</h4>
           <a href="#showcase-title"><span class="lang-zh">应用一览</span><span class="lang-en">Screenshots</span></a>
+          <a href="#features"><span class="lang-zh">功能特点</span><span class="lang-en">Features</span></a>
           <a href="#about"><span class="lang-zh">关于</span><span class="lang-en">About</span></a>
+          <a href="#faq"><span class="lang-zh">常见问题</span><span class="lang-en">FAQ</span></a>
           <a href="#privacy"><span class="lang-zh">隐私政策</span><span class="lang-en">Privacy</span></a>
           <a href="#contact"><span class="lang-zh">联系</span><span class="lang-en">Contact</span></a>
         </div>
@@ -846,6 +1137,32 @@
       var saved = '';
       try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
       if (saved === 'en') setLang(true);
+    })();
+  </script>
+  <script>
+    (function() {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title || 'MoodSky - 情绪记录 App');
+      document.getElementById('share-x').href = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+      document.getElementById('share-facebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+      document.getElementById('share-whatsapp').href = 'https://wa.me/?text=' + title + '%20' + url;
+      document.getElementById('share-telegram').href = 'https://t.me/share/url?url=' + url + '&text=' + title;
+      var copyBtn = document.getElementById('share-copy');
+      var copyZh = copyBtn.querySelector('.lang-zh');
+      var copyEn = copyBtn.querySelector('.lang-en');
+      if (copyBtn) copyBtn.addEventListener('click', function() {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          copyBtn.classList.add('copied');
+          var t = copyZh && document.body.classList.contains('lang-en') ? 'Copied!' : '已复制';
+          if (copyZh && !document.body.classList.contains('lang-en')) copyZh.textContent = '已复制';
+          if (copyEn && document.body.classList.contains('lang-en')) copyEn.textContent = 'Copied!';
+          setTimeout(function() {
+            copyBtn.classList.remove('copied');
+            if (copyZh) copyZh.textContent = '复制链接';
+            if (copyEn) copyEn.textContent = 'Copy link';
+          }, 1500);
+        });
+      });
     })();
   </script>
   <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "1f71c89197814354973927c42ef6736a"}'></script><!-- End Cloudflare Web Analytics -->
